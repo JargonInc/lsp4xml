@@ -36,6 +36,8 @@ import static org.eclipse.lsp4xml.settings.capabilities.ServerCapabilitiesConsta
 import static org.eclipse.lsp4xml.settings.capabilities.ServerCapabilitiesConstants.TEXT_DOCUMENT_LINK;
 import static org.eclipse.lsp4xml.settings.capabilities.ServerCapabilitiesConstants.TEXT_DOCUMENT_REFERENCES;
 import static org.eclipse.lsp4xml.settings.capabilities.ServerCapabilitiesConstants.TEXT_DOCUMENT_RENAME;
+import static org.eclipse.lsp4xml.settings.capabilities.ServerCapabilitiesConstants.TEXT_DOCUMENT_TYPEDEFINITION;
+import static org.eclipse.lsp4xml.settings.capabilities.ServerCapabilitiesConstants.TYPEDEFINITION_ID;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -149,6 +151,9 @@ public class XMLCapabilityManager {
 		}
 		if (this.getClientCapabilities().isDefinitionDynamicRegistered()) {
 			registerCapability(DEFINITION_ID, TEXT_DOCUMENT_DEFINITION);
+		}
+		if (this.getClientCapabilities().isTypeDefinitionDynamicRegistered()) {
+			registerCapability(TYPEDEFINITION_ID, TEXT_DOCUMENT_TYPEDEFINITION);
 		}
 		if (this.getClientCapabilities().isReferencesDynamicRegistrationSupported()) {
 			registerCapability(REFERENCES_ID, TEXT_DOCUMENT_REFERENCES);
